@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>random machine</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rye&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.png" />
     <style>
       * {
         margin: 0;
@@ -17,6 +21,7 @@
         background-color: #ffcc80;
       }
       .container {
+        position: relative;
         height: 100vh;
         padding: 50px 40px;
         background-color: #4db6ac;
@@ -26,6 +31,23 @@
         max-width: 1200px;
         margin: auto;
         border-radius: 6px;
+      }
+
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        position: absolute;
+      }
+
+      #logo1 {
+        top: 20px;
+        left: 20px;
+      }
+
+      #logo2 {
+        top: 20px;
+        right: 20px;
       }
 
       .result {
@@ -46,7 +68,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
       }
 
       label {
@@ -81,6 +102,8 @@
   </head>
   <body>
     <div class="container">
+      <img id="logo1" src="static/bun.jpg" />
+      <img id="logo2" src="static/bun.jpg" />
       <h1 style="text-align: center;">Random Machine</h1>
       <div class="result">
         --
@@ -105,7 +128,7 @@
       const maxInput = document.querySelector('#max');
       const resultDiv = document.querySelector('.result');
       const audioControl = document.querySelector('audio');
-      const button = document.querySelector('button')
+      const button = document.querySelector('button');
       let infinityTimer;
       let timeoutTimer;
       minInput.value = 1;
@@ -115,7 +138,7 @@
         let max = Number(maxInput.value) || 100;
         if (min > max) {
           min = 1;
-          max = 100
+          max = 100;
         }
         minInput.value = min;
         maxInput.value = max;
@@ -123,11 +146,11 @@
       }
 
       function disabledElements() {
-        button.setAttribute('disabled', true)
+        button.setAttribute('disabled', true);
       }
 
       function enableElements() {
-        button.removeAttribute('disabled')
+        button.removeAttribute('disabled');
       }
 
       function showResult() {
@@ -138,7 +161,7 @@
 
       function showLoading() {
         clearInterval(infinityTimer);
-        audioControl.currentTime = Math.round(Math.random() * 20)
+        audioControl.currentTime = Math.round(Math.random() * 20);
         audioControl.play();
 
         infinityTimer = setInterval(() => {
@@ -149,12 +172,12 @@
           clearInterval(infinityTimer);
           audioControl.pause();
           audioControl.currentTime = 0;
-          enableElements()
+          enableElements();
         }, 3000);
       }
 
       function handleClick() {
-        disabledElements()
+        disabledElements();
         showLoading();
       }
     </script>
