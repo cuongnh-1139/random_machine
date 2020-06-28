@@ -40,14 +40,41 @@
         position: absolute;
       }
 
+      @keyframes Logo1 {
+        0% {
+          top: 10px;
+        }
+        50% {
+          top: 30px
+        }
+        100% {
+          top: 10px;
+        }
+      }
+
+
+      @keyframes Logo2 {
+        0% {
+          top: 30px;
+        }
+        50% {
+          top: 10px
+        }
+        100% {
+          top: 30px;
+        }
+      }
+
       #logo1 {
         top: 20px;
         left: 20px;
+        animation: Logo1 2s infinite;
       }
 
       #logo2 {
         top: 20px;
         right: 20px;
+        animation: Logo2 2s infinite;
       }
 
       .result {
