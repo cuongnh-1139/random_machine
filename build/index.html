@@ -15,8 +15,8 @@
   <body>
     <div class="main">
       <div class="container">
-        <img id="logo1" src="static/bun.jpg" />
-        <img id="logo2" src="static/bun.jpg" />
+        <img class="logo" id="logo1" src="static/bun.jpg" />
+        <img class="logo" id="logo2" src="static/bun.jpg" />
         <h1>Random Machine</h1>
         <div class="result">
           --
@@ -30,9 +30,20 @@
             <span>Max:</span>
             <input id="max" name="max" type="number" />
           </label>
-          <button onclick="handleClick()">Start</button>
-          <audio>
+          <div class="btns">
+            <button id="start" onclick="handleClick()">Start</button>
+            <button id="reset" class="control" onclick="handleReset()">
+              <img alt="reset" src="static/reset.svg" />
+            </button>
+            <button id="mute" class="control" onclick="toggleBackground()">
+              <img src="static/speaker.svg" />
+            </button>
+          </div>
+          <audio id="background">
             <source src="static/nhacxoso.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="tone">
+            <source type="audio/mp3" src="static/nhacchiecnonkydieu.mp3" />
           </audio>
         </div>
       </div>
